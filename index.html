@@ -696,7 +696,18 @@
   </section>
 
   <script>
+    const WORKER_URL = 'PASTE_YOUR_WORKER_URL_HERE';
+
     window._responses = {};
+
+    function postToNotion(data) {
+      if (!WORKER_URL || WORKER_URL.startsWith('PASTE')) return;
+      fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }).catch(err => console.warn('[Passly] Notion sync failed:', err));
+    }
 
     function showStep(widgetId, stepIndex) {
       const widget = document.getElementById(widgetId);
@@ -704,7 +715,7 @@
         if (i === stepIndex) {
           el.style.display = 'block';
           el.style.animation = 'none';
-          el.offsetHeight; // reflow to restart animation
+          el.offsetHeight;
           el.style.animation = '';
         } else {
           el.style.display = 'none';
@@ -716,7 +727,8 @@
       e.preventDefault();
       const email = e.target.querySelector('.cta-email').value;
       window._responses.email = email;
-      console.log('[Passly] Email captured:', email);
+      // Record email immediately — captures drop-offs
+      postToNotion({ email });
       if (widgetId === 'widget-hero') {
         document.querySelector('.hero-copy').classList.add('survey-active');
       }
@@ -725,14 +737,25 @@
 
     function handleAnswer(widgetId, stepIndex, key, value) {
       window._responses[key] = value;
-      console.log('[Passly]', key, '=', value);
+      // Update the Notion row with the new answer
+      postToNotion({
+        email:   window._responses.email,
+        benefit: window._responses.q1 || '',
+        fear:    window._responses.q2 || '',
+      });
       showStep(widgetId, stepIndex + 1);
     }
 
     function handleChat(widgetId, answer) {
       window._responses.chat = answer;
-      console.log('[Passly] chat =', answer);
-      console.log('[Passly] Full response:', window._responses);
+      const callback = answer === 'yes' ? 'Yes' : 'No';
+      // Final update — complete record
+      postToNotion({
+        email:    window._responses.email,
+        benefit:  window._responses.q1 || '',
+        fear:     window._responses.q2 || '',
+        callback,
+      });
 
       const widget = document.getElementById(widgetId);
       const step4 = widget.querySelector('[data-step="4"]');
