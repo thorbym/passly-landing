@@ -40,9 +40,7 @@
       letter-spacing: -0.02em;
     }
 
-    .logo span {
-      color: var(--amber);
-    }
+    .logo span { color: var(--amber); }
 
     /* ── HERO ── */
     .hero {
@@ -94,167 +92,6 @@
       margin-bottom: 2.5rem;
     }
 
-    .cta-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      align-items: flex-start;
-    }
-
-    .cta-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      align-items: flex-start;
-      width: 100%;
-      max-width: 480px;
-    }
-
-    .cta-input-row {
-      display: flex;
-      width: 100%;
-      gap: 0;
-    }
-
-    .cta-email {
-      flex: 1;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 400;
-      padding: 1rem 1.25rem;
-      border: none;
-      outline: none;
-      background: #fff;
-      color: var(--navy);
-      min-width: 0;
-    }
-
-    .cta-email::placeholder {
-      color: #9aa5b4;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--amber);
-      color: var(--navy);
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 1rem 1.75rem;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-
-    .cta-btn:hover { background: var(--amber-dark); }
-
-    /* bottom CTA form centred */
-    .bottom-cta .cta-form {
-      margin: 0 auto;
-    }
-
-    .bottom-cta .cta-email {
-      border: 2px solid var(--light-border);
-    }
-
-    @media (max-width: 500px) {
-      .cta-input-row { flex-direction: column; }
-      .cta-btn { width: 100%; text-align: center; }
-    }
-
-    /* ── CONFIRMATION STATE ── */
-    .cta-confirm {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 480px;
-    }
-
-    .confirm-heading {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--amber);
-    }
-
-    .confirm-sub {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #a8b4c8;
-    }
-
-    /* override colour for bottom CTA (light bg) */
-    .bottom-cta .confirm-heading {
-      color: var(--navy);
-    }
-
-    .bottom-cta .confirm-sub {
-      color: var(--mid-grey);
-    }
-
-    .confirm-buttons {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-yes {
-      background: var(--amber);
-      color: var(--navy);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.75rem;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-yes:hover { background: var(--amber-dark); }
-
-    .btn-no {
-      background: transparent;
-      color: #6b7c96;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.25rem;
-      border: 1px solid #2a3f62;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .bottom-cta .btn-no {
-      border-color: var(--light-border);
-      color: var(--mid-grey);
-    }
-
-    .btn-no:hover { color: #fff; border-color: #4a6080; }
-    .bottom-cta .btn-no:hover { color: var(--navy); border-color: #9aa5b4; }
-
-    .confirm-final {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #a8b4c8;
-    }
-
-    .bottom-cta .confirm-final {
-      color: var(--mid-grey);
-    }
-
-    .cta-note {
-      font-size: 0.8rem;
-      color: #6b7c96;
-      font-weight: 400;
-    }
-
     /* ── HERO IMAGE ── */
     .hero-image {
       position: relative;
@@ -269,32 +106,6 @@
       object-position: center top;
       display: block;
       opacity: 0.9;
-    }
-
-    /* Placeholder shown when no real image is present */
-    .image-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #1a2f52 0%, #0f1f3d 100%);
-      color: #4a6080;
-      text-align: center;
-      padding: 2rem;
-      gap: 1rem;
-    }
-
-    .image-placeholder svg {
-      opacity: 0.4;
-    }
-
-    .image-placeholder p {
-      font-size: 0.85rem;
-      line-height: 1.6;
-      opacity: 0.5;
-      max-width: 220px;
     }
 
     /* ── SOCIAL PROOF STRIP ── */
@@ -425,7 +236,7 @@
       margin-bottom: 1rem;
     }
 
-    .bottom-cta p {
+    .bottom-cta > p {
       font-size: 1rem;
       color: var(--mid-grey);
       margin-bottom: 2.5rem;
@@ -440,6 +251,200 @@
       font-size: 0.8rem;
     }
 
+    /* ══════════════════════════════════
+       CTA WIDGET — MULTI-STEP FLOW
+    ══════════════════════════════════ */
+
+    .cta-widget {
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .bottom-cta .cta-widget {
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Step animation */
+    .step {
+      animation: stepIn 0.25s ease;
+    }
+
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── STEP 0: Email ── */
+    .cta-input-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .cta-email {
+      flex: 1;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 1rem 1.25rem;
+      border: none;
+      outline: none;
+      background: #fff;
+      color: var(--navy);
+      min-width: 0;
+    }
+
+    .cta-email::placeholder { color: #9aa5b4; }
+
+    .bottom-cta .cta-email {
+      border: 2px solid var(--light-border);
+      border-right: none;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--navy);
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 1rem 1.75rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover { background: var(--amber-dark); }
+
+    .cta-note {
+      display: block;
+      margin-top: 0.65rem;
+      font-size: 0.8rem;
+      color: #6b7c96;
+      font-weight: 400;
+    }
+
+    .bottom-cta .cta-note { color: var(--mid-grey); }
+
+    /* ── STEPS 1–2: Questions ── */
+    .step-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-counter {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .bottom-cta .step-counter { color: var(--amber-dark); }
+
+    .step-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .step-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2a3f62;
+      transition: background 0.2s;
+    }
+
+    .step-dot.active { background: var(--amber); }
+
+    .bottom-cta .step-dot { background: var(--light-border); }
+    .bottom-cta .step-dot.active { background: var(--amber-dark); }
+
+    .step-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 1.1rem;
+    }
+
+    .bottom-cta .step-question { color: var(--navy); }
+
+    .option-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .option-card {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #c8d4e3;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .option-card:hover {
+      background: rgba(245, 166, 35, 0.12);
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .bottom-cta .option-card {
+      background: #fff;
+      border: 1.5px solid var(--light-border);
+      color: var(--navy);
+    }
+
+    .bottom-cta .option-card:hover {
+      background: #fffdf7;
+      border-color: var(--amber);
+      color: var(--navy);
+    }
+
+    /* ── STEP 3: Chat ask ── */
+    .chat-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .bottom-cta .chat-label { color: var(--amber-dark); }
+
+    /* ── STEP 4: Thank you ── */
+    .thanks-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .bottom-cta .thanks-heading { color: var(--navy); }
+
+    .thanks-body {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #a8b4c8;
+    }
+
+    .bottom-cta .thanks-body { color: var(--mid-grey); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; }
@@ -452,6 +457,11 @@
       .bottom-cta { padding: 4rem 2rem; }
       nav { padding: 1rem 1.5rem; }
       .proof-strip { gap: 1.25rem; }
+    }
+
+    @media (max-width: 500px) {
+      .cta-input-row { flex-direction: column; }
+      .cta-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -468,34 +478,83 @@
       <p class="hero-eyebrow">UK Learner Drivers</p>
       <h1 class="hero-headline">Get your teenager<br><em>driving&#8209;test&#8209;ready.</em></h1>
       <p class="hero-sub">Save £1,000s on driving lessons. Teach them yourself with our <nobr>easy-to-follow</nobr> DVSA-aligned lessons tailored to your teen.</p>
-      <div class="cta-wrap">
-        <form class="cta-form" onsubmit="handleWaitlist(event)">
-          <div class="cta-input-row">
-            <input class="cta-email" type="email" placeholder="Your email address" required />
-            <button type="submit" class="cta-btn">Join waitlist</button>
-          </div>
+
+      <!-- CTA WIDGET: HERO -->
+      <div class="cta-widget" id="widget-hero">
+
+        <!-- Step 0: Email -->
+        <div class="step" data-step="0">
+          <form class="email-form" onsubmit="handleEmail(event, 'widget-hero')">
+            <div class="cta-input-row">
+              <input class="cta-email" type="email" placeholder="Your email address" required />
+              <button type="submit" class="cta-btn">Join waitlist</button>
+            </div>
+          </form>
           <span class="cta-note">No spam, just early access when we launch.</span>
-        </form>
-        <div class="cta-confirm">
-          <div class="confirm-question">
-            <p class="confirm-heading">You're on the list!</p>
-            <p class="confirm-sub">We're talking to parents before we build. Would you be up for a 10 minute chat?<br /><br /></p>
-            <div class="confirm-buttons">
-              <button class="btn-yes" onclick="handleChatYes()">Yes, happy to chat</button>
-              <button class="btn-no" onclick="handleChatNo()">No thanks</button>
+        </div>
+
+        <!-- Step 1: Q1 -->
+        <div class="step" data-step="1" style="display:none">
+          <div class="step-meta">
+            <span class="step-counter">Question 1 of 2</span>
+            <div class="step-dots">
+              <div class="step-dot active"></div>
+              <div class="step-dot"></div>
             </div>
           </div>
-          <div class="confirm-yes" style="display:none">
-            <p class="confirm-heading">Brilliant - we'll be in touch.</p>
-            <p class="confirm-sub">We'll drop you an email to arrange a time. It'll only take 10 minutes and really helps us build the right thing.</p>
-          </div>
-          <div class="confirm-no" style="display:none">
-            <p class="confirm-heading">You're on the list.</p>
-            <p class="confirm-final">We'll let you know the moment we launch. Thanks for your support.</p>
+          <p class="step-question">What would be the main benefit of teaching your teen to drive?</p>
+          <div class="option-cards">
+            <button class="option-card" onclick="handleAnswer('widget-hero', 1, 'q1', 'Spending time with them')">Spending time with them</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 1, 'q1', 'Saving money')">Saving money</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 1, 'q1', 'Giving them independence quicker')">Giving them independence quicker</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 1, 'q1', 'Making sure they\'re safe')">Making sure they're safe</button>
           </div>
         </div>
+
+        <!-- Step 2: Q2 -->
+        <div class="step" data-step="2" style="display:none">
+          <div class="step-meta">
+            <span class="step-counter">Question 2 of 2</span>
+            <div class="step-dots">
+              <div class="step-dot"></div>
+              <div class="step-dot active"></div>
+            </div>
+          </div>
+          <p class="step-question">What would be your biggest fear about teaching your teen to drive?</p>
+          <div class="option-cards">
+            <button class="option-card" onclick="handleAnswer('widget-hero', 2, 'q2', 'Way too scary')">Way too scary</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 2, 'q2', 'We\'d argue too much')">We'd argue too much</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 2, 'q2', 'Are they insured?')">Are they insured?</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 2, 'q2', 'I don\'t know what to teach')">I don't know what to teach</button>
+            <button class="option-card" onclick="handleAnswer('widget-hero', 2, 'q2', 'I don\'t have time')">I don't have time</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Chat ask -->
+        <div class="step" data-step="3" style="display:none">
+          <span class="chat-label">One last thing</span>
+          <p class="step-question">Would you be up for a quick 10-minute chat with us?</p>
+          <div class="option-cards">
+            <button class="option-card" onclick="handleChat('widget-hero', 'yes')">Yes, happy to chat</button>
+            <button class="option-card" onclick="handleChat('widget-hero', 'no')">No thanks</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Thank you -->
+        <div class="step" data-step="4" style="display:none">
+          <div class="thanks-yes" style="display:none">
+            <p class="thanks-heading">Brilliant — we'll be in touch.</p>
+            <p class="thanks-body">We'll drop you an email to arrange a time. It'll only take 10 minutes and really helps us build the right thing.</p>
+          </div>
+          <div class="thanks-no" style="display:none">
+            <p class="thanks-heading">You're on the list.</p>
+            <p class="thanks-body">We'll let you know the moment we launch. Thanks for your support.</p>
+          </div>
+        </div>
+
       </div>
     </div>
+
     <div class="hero-image">
       <img src="https://i.postimg.cc/Y0F7yW1W/Gemini-Generated-Image-2gksux2gksux2gks.png" alt="Parent in passenger seat, teenager driving, viewed from back seat" />
     </div>
@@ -545,66 +604,124 @@
   <section class="bottom-cta">
     <h2>Be first to know when we launch.</h2>
     <p>Join hundreds of parents across the UK doing this too.</p>
-    <form class="cta-form" onsubmit="handleWaitlist(event)">
-      <div class="cta-input-row">
-        <input class="cta-email" type="email" placeholder="Your email address" required />
-        <button type="submit" class="cta-btn">Join waitlist</button>
+
+    <!-- CTA WIDGET: BOTTOM -->
+    <div class="cta-widget" id="widget-bottom">
+
+      <!-- Step 0: Email -->
+      <div class="step" data-step="0">
+        <form class="email-form" onsubmit="handleEmail(event, 'widget-bottom')">
+          <div class="cta-input-row">
+            <input class="cta-email" type="email" placeholder="Your email address" required />
+            <button type="submit" class="cta-btn">Join waitlist</button>
+          </div>
+        </form>
+        <span class="cta-note">No spam, just early access when we launch.</span>
       </div>
-      <span class="cta-note">No spam, just early access when we launch.</span>
-    </form>
-    <div class="cta-confirm">
-      <div class="confirm-question">
-        <p class="confirm-heading">You're on the list.</p>
-        <p class="confirm-sub">We're talking to parents before we build — would you be up for a quick 15-minute chat?</p>
-        <div class="confirm-buttons">
-          <button class="btn-yes" onclick="handleChatYes()">Yes, happy to chat</button>
-          <button class="btn-no" onclick="handleChatNo()">No thanks</button>
+
+      <!-- Step 1: Q1 -->
+      <div class="step" data-step="1" style="display:none">
+        <div class="step-meta">
+          <span class="step-counter">Question 1 of 2</span>
+          <div class="step-dots">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+          </div>
+        </div>
+        <p class="step-question">What would be the main benefit of teaching your teen to drive?</p>
+        <div class="option-cards">
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 1, 'q1', 'Spending time with them')">Spending time with them</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 1, 'q1', 'Saving money')">Saving money</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 1, 'q1', 'Giving them independence quicker')">Giving them independence quicker</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 1, 'q1', 'Making sure they\'re safe')">Making sure they're safe</button>
         </div>
       </div>
-      <div class="confirm-yes" style="display:none">
-        <p class="confirm-heading">Brilliant — we'll be in touch.</p>
-        <p class="confirm-sub">We'll drop you an email to arrange a time. It'll only take 15 minutes and really helps us build the right thing.</p>
+
+      <!-- Step 2: Q2 -->
+      <div class="step" data-step="2" style="display:none">
+        <div class="step-meta">
+          <span class="step-counter">Question 2 of 2</span>
+          <div class="step-dots">
+            <div class="step-dot"></div>
+            <div class="step-dot active"></div>
+          </div>
+        </div>
+        <p class="step-question">What would be your biggest fear about teaching your teen to drive?</p>
+        <div class="option-cards">
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 2, 'q2', 'Way too scary')">Way too scary</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 2, 'q2', 'We\'d argue too much')">We'd argue too much</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 2, 'q2', 'Are they insured?')">Are they insured?</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 2, 'q2', 'I don\'t know what to teach')">I don't know what to teach</button>
+          <button class="option-card" onclick="handleAnswer('widget-bottom', 2, 'q2', 'I don\'t have time')">I don't have time</button>
+        </div>
       </div>
-      <div class="confirm-no" style="display:none">
-        <p class="confirm-heading">You're on the list.</p>
-        <p class="confirm-final">We'll let you know the moment we launch. Thanks for your support.</p>
+
+      <!-- Step 3: Chat ask -->
+      <div class="step" data-step="3" style="display:none">
+        <span class="chat-label">One last thing</span>
+        <p class="step-question">Would you be up for a quick 10-minute chat with us?</p>
+        <div class="option-cards">
+          <button class="option-card" onclick="handleChat('widget-bottom', 'yes')">Yes, happy to chat</button>
+          <button class="option-card" onclick="handleChat('widget-bottom', 'no')">No thanks</button>
+        </div>
       </div>
+
+      <!-- Step 4: Thank you -->
+      <div class="step" data-step="4" style="display:none">
+        <div class="thanks-yes" style="display:none">
+          <p class="thanks-heading">Brilliant — we'll be in touch.</p>
+          <p class="thanks-body">We'll drop you an email to arrange a time. It'll only take 10 minutes and really helps us build the right thing.</p>
+        </div>
+        <div class="thanks-no" style="display:none">
+          <p class="thanks-heading">You're on the list.</p>
+          <p class="thanks-body">We'll let you know the moment we launch. Thanks for your support.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <script>
-    function handleWaitlist(e) {
+    window._responses = {};
+
+    function showStep(widgetId, stepIndex) {
+      const widget = document.getElementById(widgetId);
+      widget.querySelectorAll('.step').forEach((el, i) => {
+        if (i === stepIndex) {
+          el.style.display = 'block';
+          el.style.animation = 'none';
+          el.offsetHeight; // reflow to restart animation
+          el.style.animation = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    function handleEmail(e, widgetId) {
       e.preventDefault();
-      const form = e.target;
-      const email = form.querySelector('.cta-email').value;
-      console.log('Waitlist signup:', email);
-
-      // Swap all forms for confirmation
-      document.querySelectorAll('.cta-form').forEach(f => {
-        const confirm = f.parentElement.querySelector('.cta-confirm');
-        f.style.display = 'none';
-        confirm.style.display = 'flex';
-      });
-
-      // Store email for later association
-      window._waitlistEmail = email;
+      const email = e.target.querySelector('.cta-email').value;
+      window._responses.email = email;
+      console.log('[Passly] Email captured:', email);
+      showStep(widgetId, 1);
     }
 
-    function handleChatYes() {
-      document.querySelectorAll('.cta-confirm').forEach(el => {
-        el.querySelector('.confirm-question').style.display = 'none';
-        el.querySelector('.confirm-yes').style.display = 'block';
-      });
-      console.log('Chat yes:', window._waitlistEmail);
-      // TODO: record chat interest against email
+    function handleAnswer(widgetId, stepIndex, key, value) {
+      window._responses[key] = value;
+      console.log('[Passly]', key, '=', value);
+      showStep(widgetId, stepIndex + 1);
     }
 
-    function handleChatNo() {
-      document.querySelectorAll('.cta-confirm').forEach(el => {
-        el.querySelector('.confirm-question').style.display = 'none';
-        el.querySelector('.confirm-no').style.display = 'block';
-      });
-      console.log('Chat no:', window._waitlistEmail);
+    function handleChat(widgetId, answer) {
+      window._responses.chat = answer;
+      console.log('[Passly] chat =', answer);
+      console.log('[Passly] Full response:', window._responses);
+
+      const widget = document.getElementById(widgetId);
+      const step4 = widget.querySelector('[data-step="4"]');
+      step4.querySelector('.thanks-yes').style.display = answer === 'yes' ? 'block' : 'none';
+      step4.querySelector('.thanks-no').style.display  = answer === 'no'  ? 'block' : 'none';
+      showStep(widgetId, 4);
     }
   </script>
 
