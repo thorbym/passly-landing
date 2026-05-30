@@ -93,6 +93,19 @@
       margin-bottom: 2.5rem;
     }
 
+    /* ── HERO COPY: collapse marketing text once survey starts ── */
+    .hero-copy .collapsible {
+      transition: opacity 0.3s ease, max-height 0.4s ease, margin 0.4s ease;
+      max-height: 400px;
+      overflow: hidden;
+    }
+
+    .hero-copy.survey-active .collapsible {
+      opacity: 0;
+      max-height: 0;
+      margin: 0 !important;
+    }
+
     /* ── HERO IMAGE ── */
     .hero-image {
       position: relative;
@@ -476,9 +489,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-copy">
-      <p class="hero-eyebrow">UK Learner Drivers</p>
-      <h1 class="hero-headline">Get your teenager<br><em>driving&#8209;test&#8209;ready.</em></h1>
-      <p class="hero-sub">Save £1,000s on driving lessons. Teach them yourself with our <nobr>easy-to-follow</nobr> DVSA-aligned lessons tailored to your teen.</p>
+      <p class="hero-eyebrow collapsible">UK Learner Drivers</p>
+      <h1 class="hero-headline collapsible">Get your teenager<br><em>driving&#8209;test&#8209;ready.</em></h1>
+      <p class="hero-sub collapsible">Save £1,000s on driving lessons. Teach them yourself with our <nobr>easy-to-follow</nobr> DVSA-aligned lessons tailored to your teen.</p>
 
       <!-- CTA WIDGET: HERO -->
       <div class="cta-widget" id="widget-hero">
@@ -704,6 +717,9 @@
       const email = e.target.querySelector('.cta-email').value;
       window._responses.email = email;
       console.log('[Passly] Email captured:', email);
+      if (widgetId === 'widget-hero') {
+        document.querySelector('.hero-copy').classList.add('survey-active');
+      }
       showStep(widgetId, 1);
     }
 
