@@ -308,6 +308,7 @@
       min-width: 0;
     }
 
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
     .cta-email::placeholder { color: #9aa5b4; }
 
     .bottom-cta .cta-email {
@@ -499,6 +500,7 @@
         <!-- Step 0: Email -->
         <div class="step" data-step="0">
           <form class="email-form" onsubmit="handleEmail(event, 'widget-hero')">
+            <input class="hp-field" type="text" name="phone" tabindex="-1" autocomplete="off" />
             <div class="cta-input-row">
               <input class="cta-email" type="email" placeholder="Your email address" required />
               <button type="submit" class="cta-btn">Join waitlist</button>
@@ -651,6 +653,7 @@
 
     function handleEmail(e, widgetId) {
       e.preventDefault();
+      if (e.target.querySelector('.hp-field').value) return;
       const email = e.target.querySelector('.cta-email').value;
       window._responses.email = email;
       postToSheet({ email });
