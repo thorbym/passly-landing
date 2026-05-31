@@ -737,19 +737,14 @@
 
     function handleAnswer(widgetId, stepIndex, key, value) {
       window._responses[key] = value;
-      // Update the Notion row with the new answer
-      postToNotion({
-        email:   window._responses.email,
-        benefit: window._responses.q1 || '',
-        fear:    window._responses.q2 || '',
-      });
+      // Just store — POST only happens at email capture and final step
       showStep(widgetId, stepIndex + 1);
     }
 
     function handleChat(widgetId, answer) {
       window._responses.chat = answer;
       const callback = answer === 'yes' ? 'Yes' : 'No';
-      // Final update — complete record
+      // Single final POST with complete record
       postToNotion({
         email:    window._responses.email,
         benefit:  window._responses.q1 || '',
