@@ -726,6 +726,7 @@
       e.preventDefault();
       const email = e.target.querySelector('.cta-email').value;
       window._responses.email = email;
+      postToSheet({ email });
       if (widgetId === 'widget-hero') {
         document.querySelector('.hero-copy').classList.add('survey-active');
       }
@@ -734,6 +735,11 @@
 
     function handleAnswer(widgetId, stepIndex, key, value) {
       window._responses[key] = value;
+      postToSheet({
+        email:   window._responses.email,
+        benefit: window._responses.q1 || '',
+        fear:    window._responses.q2 || '',
+      });
       showStep(widgetId, stepIndex + 1);
     }
 
