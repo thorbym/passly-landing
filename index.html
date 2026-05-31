@@ -696,17 +696,15 @@
   </section>
 
   <script>
-    const CREATE_URL = 'https://hook.eu1.make.com/fdpxqvptgxq3xj611ydw6jc4tmucsabp';
-    const UPDATE_URL = 'https://hook.eu1.make.com/bna4rvmpztw96pabdm4vw77pnhn6668o';
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwf4Sf7KFUxLKL4rQ6nyiqYl5i5Y9-PtD-tIwL7UnXiBYXv9BY9ae2FeTEoJ46q2AVPHg/exec';
 
     window._responses = {};
 
-    function postUpdate(data) {
-      fetch(UPDATE_URL, {
+    function postToSheet(data) {
+      fetch(SHEET_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      }).catch(err => console.warn('[Passly] update failed:', err));
+      }).catch(err => console.warn('[Passly] sheet sync failed:', err));
     }
 
     function showStep(widgetId, stepIndex) {
@@ -723,7 +721,7 @@
       });
     }
 
-    async function handleEmail(e, widgetId) {
+    function handleEmail(e, widgetId) {
       e.preventDefault();
       const email = e.target.querySelector('.cta-email').value;
       window._responses.email = email;
@@ -731,36 +729,17 @@
         document.querySelector('.hero-copy').classList.add('survey-active');
       }
       showStep(widgetId, 1);
-      // Create row and store the returned pageId for subsequent updates
-      try {
-        const res = await fetch(CREATE_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
-        const json = await res.json();
-        if (json.pageId) window._responses.pageId = json.pageId;
-      } catch (err) {
-        console.warn('[Passly] create failed:', err);
-      }
     }
 
     function handleAnswer(widgetId, stepIndex, key, value) {
       window._responses[key] = value;
-      postUpdate({
-        pageId:  window._responses.pageId,
-        email:   window._responses.email,
-        benefit: window._responses.q1 || '',
-        fear:    window._responses.q2 || '',
-      });
       showStep(widgetId, stepIndex + 1);
     }
 
     function handleChat(widgetId, answer) {
       window._responses.chat = answer;
       const callback = answer === 'yes' ? 'Yes' : 'No';
-      postUpdate({
-        pageId:   window._responses.pageId,
+      postToSheet({
         email:    window._responses.email,
         benefit:  window._responses.q1 || '',
         fear:     window._responses.q2 || '',
