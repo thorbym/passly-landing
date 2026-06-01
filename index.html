@@ -471,8 +471,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-image { min-height: 320px; }
+      .hero { grid-template-columns: 1fr; height: auto; max-height: none; overflow: visible; }
+      .hero-image { min-height: 280px; max-height: 320px; }
       .hero-image img { object-position: center center; }
       .hero-copy { padding: 3.5rem 2rem; }
       .feature-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -481,13 +481,12 @@
       .bottom-cta { padding: 4rem 2rem; }
       nav { padding: 1rem 1.5rem; }
       .proof-strip { gap: 1.25rem; }
-      .hero-headline { font-size: clamp(1.8rem, 8vw, 2.8rem); word-break: break-word; overflow-wrap: break-word; }
+      .hero-headline { font-size: clamp(2rem, 7vw, 2.8rem); overflow-wrap: break-word; }
     }
 
     @media (max-width: 500px) {
       .cta-input-row { flex-direction: column; }
       .cta-btn { width: 100%; text-align: center; }
-      .hero-headline { font-size: clamp(1.6rem, 7.5vw, 2.2rem); }
     }
   </style>
 </head>
