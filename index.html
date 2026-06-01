@@ -31,6 +31,7 @@
       background: var(--off-white);
       color: var(--navy);
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -480,11 +481,13 @@
       .bottom-cta { padding: 4rem 2rem; }
       nav { padding: 1rem 1.5rem; }
       .proof-strip { gap: 1.25rem; }
+      .hero-headline { font-size: clamp(1.8rem, 8vw, 2.8rem); word-break: break-word; overflow-wrap: break-word; }
     }
 
     @media (max-width: 500px) {
       .cta-input-row { flex-direction: column; }
       .cta-btn { width: 100%; text-align: center; }
+      .hero-headline { font-size: clamp(1.6rem, 7.5vw, 2.2rem); }
     }
   </style>
 </head>
