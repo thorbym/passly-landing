@@ -674,6 +674,7 @@
       if (widgetId === 'widget-hero') {
         document.querySelector('.hero-copy').classList.add('survey-active');
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       showStep(widgetId, 1);
     }
 
